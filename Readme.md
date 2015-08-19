@@ -1,1 +1,1 @@
-A task manager similar to the one found in windows. Will exclude the hardware monitioring part.
+A clone of the windows task manager. Trying to make it as close as possible to the original one in the limited time we have.
