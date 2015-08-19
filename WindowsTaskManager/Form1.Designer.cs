@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.filesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,6 +61,10 @@
             this.process_toolstriplabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.cpu_toolstriplabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.memory_toolstriplabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.alwaysOnTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hideWhenMinimizedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.processes.SuspendLayout();
             this.applications.SuspendLayout();
@@ -105,8 +110,12 @@
             // 
             // optionsToolStripMenuItem
             // 
+            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.alwaysOnTToolStripMenuItem,
+            this.minimizeToolStripMenuItem,
+            this.hideWhenMinimizedToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(94, 24);
             this.optionsToolStripMenuItem.Text = "Options";
             // 
             // viewToolStripMenuItem
@@ -151,6 +160,7 @@
             // 
             // endprocess_button
             // 
+            this.endprocess_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.endprocess_button.Location = new System.Drawing.Point(319, 418);
             this.endprocess_button.Name = "endprocess_button";
             this.endprocess_button.Size = new System.Drawing.Size(121, 33);
@@ -160,6 +170,9 @@
             // 
             // processes_listview
             // 
+            this.processes_listview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.processes_listview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.processname,
             this.cpu,
@@ -206,6 +219,7 @@
             // 
             // endtask_button
             // 
+            this.endtask_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.endtask_button.Location = new System.Drawing.Point(184, 420);
             this.endtask_button.Name = "endtask_button";
             this.endtask_button.Size = new System.Drawing.Size(125, 30);
@@ -215,6 +229,7 @@
             // 
             // newtask_button
             // 
+            this.newtask_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.newtask_button.Location = new System.Drawing.Point(315, 420);
             this.newtask_button.Name = "newtask_button";
             this.newtask_button.Size = new System.Drawing.Size(125, 30);
@@ -225,6 +240,9 @@
             // 
             // applications_listview
             // 
+            this.applications_listview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.applications_listview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.task,
             this.status});
@@ -274,6 +292,9 @@
             // 
             // services_listview
             // 
+            this.services_listview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.services_listview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.servicename,
             this.serviedescription,
@@ -329,6 +350,28 @@
             this.memory_toolstriplabel.Name = "memory_toolstriplabel";
             this.memory_toolstriplabel.Size = new System.Drawing.Size(152, 20);
             this.memory_toolstriplabel.Text = "Physical Memory 40%";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // alwaysOnTToolStripMenuItem
+            // 
+            this.alwaysOnTToolStripMenuItem.Name = "alwaysOnTToolStripMenuItem";
+            this.alwaysOnTToolStripMenuItem.Size = new System.Drawing.Size(177, 24);
+            this.alwaysOnTToolStripMenuItem.Text = "Always On Top";
+            // 
+            // minimizeToolStripMenuItem
+            // 
+            this.minimizeToolStripMenuItem.Name = "minimizeToolStripMenuItem";
+            this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(226, 24);
+            this.minimizeToolStripMenuItem.Text = "Minimize On Use";
+            // 
+            // hideWhenMinimizedToolStripMenuItem
+            // 
+            this.hideWhenMinimizedToolStripMenuItem.Name = "hideWhenMinimizedToolStripMenuItem";
+            this.hideWhenMinimizedToolStripMenuItem.Size = new System.Drawing.Size(226, 24);
+            this.hideWhenMinimizedToolStripMenuItem.Text = "Hide When Minimized";
             // 
             // Form1
             // 
@@ -388,6 +431,10 @@
         private System.Windows.Forms.ToolStripStatusLabel process_toolstriplabel;
         private System.Windows.Forms.ToolStripStatusLabel cpu_toolstriplabel;
         private System.Windows.Forms.ToolStripStatusLabel memory_toolstriplabel;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripMenuItem alwaysOnTToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hideWhenMinimizedToolStripMenuItem;
     }
 }
 
